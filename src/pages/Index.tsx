@@ -1,14 +1,26 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import React from 'react';
+import LoginCard from '../components/Login/LoginCard';
+import Header from '../components/layout/Header';
 
-const Index = () => {
+/**
+ * IndexPage serves as the main login page for the InsideBox application.
+ * It arranges the Header and LoginCard components according to the specified layout.
+ */
+const IndexPage: React.FC = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <div className="relative min-h-screen bg-background text-foreground">
+      {/* Header positioned at the top-left of the page */}
+      <div className="absolute top-6 left-6 sm:top-8 sm:left-8 z-10">
+        <Header />
       </div>
+
+      {/* Main content area dedicated to centering the LoginCard */}
+      {/* This implements the core layout: full-height, flex-centered content. */}
+      <main className="flex min-h-screen flex-col items-center justify-center p-4">
+        <LoginCard />
+      </main>
     </div>
   );
 };
 
-export default Index;
+export default IndexPage;
