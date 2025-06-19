@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { fontFamily } from "tailwindcss/defaultTheme";
 
 export default {
 	darkMode: ["class"],
@@ -52,22 +53,21 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
-				}
+        // PRD specific color names for direct use if needed
+        // Mapped to CSS variables for consistency with Shadcn theming
+        primaryText: 'hsl(var(--foreground))', // PRD primaryText #101828
+        secondaryText: 'hsl(var(--muted-foreground))', // PRD secondaryText #667085
+        // PRD accentSecondary color
+        accentSecondary: '#DB4437',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
+				md: 'calc(var(--radius) - 2px)', // 0.5rem - 2px = 0.375rem (6px), matches PRD 'rounded-md'
 				sm: 'calc(var(--radius) - 4px)'
 			},
+      fontFamily: {
+        sans: ["Inter", ...fontFamily.sans],
+      },
 			keyframes: {
 				'accordion-down': {
 					from: {
